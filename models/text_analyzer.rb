@@ -14,3 +14,19 @@ class TextAnalyzer
   def count_of_vowels
     text.scan(/[aeoui]/).count
   end
+
+  def count_of_consonants
+    text.scan(/[bcdfghjklmnpqrstvwxyz]/).count
+  end
+
+  def most_used_letter
+    s1=text.gub(/[^a-z]/, "")
+    arr=s1.split('')
+    arr1=arr.uniq
+    arr2={}
+
+    arr1.map do |c|
+      arr2[c]=arr.count(c)
+    end
+
+    biggest= {arr2.keys.first => arr2.values.first}
